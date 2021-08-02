@@ -16,6 +16,9 @@ Prepare/Convert JPEG to LMDB data with the Nvidia Script
 
 > python prepare_data.py --out LMDB_PATH --n_worker N_WORKER DATASET_PATH
 
+> python prepare_data.py --out data .
+
+
 This will convert images to jpeg and pre-resizes it. (For example, 8/16/32/64/128/256/512/1024) Then you can train StyleGAN.
 
 for celebA
@@ -25,6 +28,9 @@ for celebA
 for FFHQ
 
 > python train.py --mixing --loss r1 --sched LMDB_PATH
+
+
+FFHQ , CelebA, and many other datasets exist. Abstract art etc.  see https://towardsdatascience.com/5-kaggle-data-sets-for-training-gans-33dc2e035161
 
 Resolution | Model & Optimizer 
 -----------|-------------------
@@ -51,4 +57,3 @@ Resolution | Model & Optimizer | Running average of generator
 
 Old version of checkpoints. As gradient penalty and discriminator activations are different, it is better to use new checkpoints to do some training. But you can use these checkpoints to make samples as generator architecture is not changed.
 
-Running average of generator is saved at the specified iterations. So these two are saved at different iterations. (Yes, this is my mistake.)
